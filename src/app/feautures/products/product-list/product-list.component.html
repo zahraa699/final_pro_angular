@@ -1,0 +1,39 @@
+<!-- tools (sorting , change view , exporting) -->
+<div class="item-listing__tools">
+    <select class="form-control" name="" id="">
+        <option value="1">Featured</option>
+        <option value="2">Price low to high</option>
+        <option value="3">Price high to low</option>
+        <option value="4">Name</option>
+    </select>
+    <a class="action-btn" routerLink="/product/add" >
+        <i class="fas fa-plus"></i>
+    </a>
+</div>
+<!-- let item of productArray$|async -->
+<div class="item-listing__items item-listing--3items">
+    <app-product-item  *ngFor="let item of (productArray$ |async)?.product ; let hamada=index" [productItem]="item" class="item-medium-1"></app-product-item>
+    <!-- <app-product-item [productItem]="productsarray[1]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[2]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[3]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[4]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[5]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[6]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[7]" class="item-medium-1"></app-product-item>
+    <app-product-item [productItem]="productsarray[8]" class="item-medium-1"></app-product-item> -->
+</div>
+<!-- paging -->
+<div class="paging">
+    <!-- left arrow -->
+    <div class="paging__arrow">
+        <i class="fas fa-angle-left"></i>
+    </div>
+    <!-- page number -->
+    <div class="paging__number active">1</div>
+    <div class="paging__number">2</div>
+    <div class="paging__number">3</div>
+    <!-- right arrow -->
+    <div class="paging__arrow">
+        <i class="fas fa-angle-right"></i>
+    </div>
+</div>

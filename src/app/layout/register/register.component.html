@@ -1,0 +1,33 @@
+ <!-- Register -->
+ <div class="container">
+    <form class="login" #myForm="ngForm">
+        <h4 class="login__header">
+            Register An Account
+        </h4>
+        <div class="form-group" [ngClass]="{'invalid' : email.invalid && email.touched}">
+            <label for="">E-mail Address</label>
+            <input class="form-control" type="text" name="email" id="" required #email=ngModel ngModel>
+            <div *ngIf=" email.invalid && email.touched && email.errors?.['required']">Email is required</div>
+        </div>
+        <div class="form-row">
+            <div class="form-group" [ngClass]="{'invalid' : password.invalid && password.touched}">
+                <label for="">Password</label>
+                <input class="form-control" type="password" name="password" id="" required #password=ngModel ngModel>
+            <div *ngIf=" password.invalid && password.touched && password.errors?.['required']"> Password is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{'invalid' : confPass.invalid && confPass.touched}">
+                <label for="">Re-enter Password</label>
+                <input class="form-control" type="password" name="confPassword" id="" required #confPass=ngModel ngModel>
+            <div *ngIf=" confPass.invalid && confPass.touched && confPass.errors?.['required']"> Re-Enter Password Please</div>
+            </div>
+        </div>
+        <div *ngIf=" password.value !== confPass.value   && confPass.touched"> Password doesn't match</div>
+        <div class="login__remember-me">
+            <div class="add-product__actions">
+                <button  class="btn btn--gray">Cancel</button>
+                <button routerLink="" class="btn btn--primary" [disabled]="myForm.invalid">Register</button>
+            </div>
+        </div>
+        <a [routerLink]="'/login'" class="login__register-now">You are alredy a member?</a>
+    </form>
+</div>
